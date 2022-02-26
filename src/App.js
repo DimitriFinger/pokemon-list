@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import NavBar from './components/NavBar/NavBar';
 import { getPokemon, getPokemons } from './services/api';
 function App() {
 
@@ -8,8 +9,7 @@ function App() {
     const loadPokemons = async () => {
         try {
             const response = await getPokemons();
-            const response2 = await getPokemon();
-            setPokemons(response2.data.sprites.front_default);
+            setPokemons(response.data.results);
         } catch (err) {
             console.log(err);
         }
@@ -22,18 +22,8 @@ function App() {
     console.log(pokemons)
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <img alt='none' src={pokemons} />
-                {/* {
-                    pokemons.map((pokemon, id) => (
-                        <h1 key={id}>{pokemon.name}</h1>
-                    ))
-                } */}
-            </header>
+        <div className="main-container">
+            <NavBar />
         </div>
     );
 }
