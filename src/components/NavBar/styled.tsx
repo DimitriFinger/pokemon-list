@@ -11,4 +11,10 @@ export const NavDiv = styled.div`
 
 export const LogoPokedex = styled.img`
     margin-top: 10px;
-`
+`;
+
+export const NavHeader = styled.header`
+    position: sticky;
+	top: 0;
+`;
+

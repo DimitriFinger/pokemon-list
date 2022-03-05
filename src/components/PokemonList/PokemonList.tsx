@@ -1,6 +1,8 @@
 import React from 'react';
 import { Pokemon } from '../../models/pokemons';
-import PokemonCard from '../PokemonCard/PokemonCard'
+import PokemonCard from '../PokemonCard/PokemonCard';
+import { ListContainer } from './styled';
+
 
 interface Props {
     pokemons: Pokemon[];
@@ -9,13 +11,13 @@ interface Props {
 const PokemonList: React.FC<Props> = ({ pokemons }) => {
 
     return (
-        <div>
+        <ListContainer>
             {
                 pokemons.map(pokemon => (
                     <PokemonCard name={pokemon.name} />
                 ))
             }
-        </div>
+        </ListContainer>
     )
 }
 

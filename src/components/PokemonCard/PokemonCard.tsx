@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardContainer } from './styled'
+import { Card } from './styled'
 
 interface Props {
     name: string
@@ -8,9 +8,9 @@ interface Props {
 
 const PokemonCard: React.FC<Props> = ({ name }) => {
     return (
-        <CardContainer>
-            <h1>{name}</h1>
-        </CardContainer>
+        <Card>
+            {name}
+        </Card>
     )
 };
 

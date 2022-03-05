@@ -1,14 +1,16 @@
 import React from 'react';
-import { NavDiv, LogoPokedex } from './styled';
+import { NavDiv, LogoPokedex, NavHeader } from './styled';
 import logo from '../../assets/logo.png';
 
 
 
 const NavBar: React.FC = () => {
     return (
-        <NavDiv>
-            <LogoPokedex src={logo} alt=" " />
-        </NavDiv>
+        <NavHeader>
+            <NavDiv>
+                <LogoPokedex src={logo} alt=" " />
+            </NavDiv>
+        </NavHeader>
 
     );
 }
