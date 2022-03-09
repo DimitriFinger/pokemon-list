@@ -13,7 +13,7 @@ const AppRoutes = () => {
         <Router>
             <Routes>
                 <Route path="/pokedex" element={<PokedexPage />} />
-                <Route path="/modal" element={<PokemonModal />} />
+                {/* <Route path="/modal" element={<PokemonModal />} /> */}
             </Routes>
         </Router>
     )

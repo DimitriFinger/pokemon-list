@@ -10,6 +10,8 @@ interface Props {
 
 const PokemonList: React.FC<Props> = ({ pokemons }) => {
 
+
+
     return (
         <ListContainer>
             {

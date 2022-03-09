@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Card = styled.div`
+interface Props {
+    onClick: React.MouseEventHandler<HTMLDivElement>;
+}
+
+export const Card = styled.div<Props>`
     display:flex;
     justify-content: center;
     align-items: center;

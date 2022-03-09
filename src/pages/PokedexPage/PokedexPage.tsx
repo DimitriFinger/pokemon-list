@@ -4,7 +4,7 @@ import PokemonList from '../../components/PokemonList/PokemonList';
 import { getPokemons } from '../../services/api'
 import { Pokemon } from '../../models/pokemons';
 
-const PokedexPage = () => {
+const PokedexPage: React.FC = () => {
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
     const loadPokemons = async () => {

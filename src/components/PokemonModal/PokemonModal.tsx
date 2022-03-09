@@ -1,9 +1,26 @@
-import React from 'react'
+import * as React from 'react';
+import Modal from '../ModalPopUp/Modal';
+import { DesktopModalContainer, Header } from './styled';
 
-const PokemonModal: React.FC = () => {
-    return (
-        <div>PokemonDetailModal</div>
-    )
+interface Props {
+    isModalVisible: boolean,
+    onBackdropClick: () => void,
+    name: string
 }
+
+const PokemonModal: React.FunctionComponent<Props> = ({ onBackdropClick, isModalVisible, name }) => {
+    if (!isModalVisible) {
+        return null;
+    }
+    console.log(isModalVisible)
+    return (
+        <Modal onBackdropClick={onBackdropClick}>
+            <DesktopModalContainer>
+                <Header>{name}</Header>
+            </DesktopModalContainer>
+        </Modal>
+
+    );
+};
 
 export default PokemonModal;

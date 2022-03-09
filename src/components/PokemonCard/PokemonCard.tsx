@@ -1,5 +1,6 @@
-import React from 'react'
-import { Card } from './styled'
+import { useState } from 'react';
+import PokemonModal from '../PokemonModal/PokemonModal';
+import { Card } from './styled';
 
 interface Props {
     name: string
@@ -7,10 +8,22 @@ interface Props {
 
 
 const PokemonCard: React.FC<Props> = ({ name }) => {
+
+    const [isModalVisible, setModalVisible] = useState<boolean>(false)
+
+    const showModal = () => {
+        return (
+            setModalVisible(!isModalVisible)
+        )
+    }
+
     return (
-        <Card>
-            {name}
-        </Card>
+        <div>
+            <Card onClick={showModal}>
+                {name}
+            </Card>
+            <PokemonModal isModalVisible={isModalVisible} onBackdropClick={showModal} name={name} />
+        </div>
     )
 };
 
