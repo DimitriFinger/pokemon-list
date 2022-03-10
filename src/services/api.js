@@ -8,6 +8,6 @@ export const getPokemons = () => {
     return api.get();
 };
 
-export const getPokemon = () => {
-    return api.get('/charizard');
+export const getPokemonDetails = (pokemon) => {
+    return api.get(`/${pokemon}`);
 };

@@ -10,13 +10,11 @@ interface Props {
 
 const PokemonList: React.FC<Props> = ({ pokemons }) => {
 
-
-
     return (
         <ListContainer>
             {
-                pokemons.map(pokemon => (
-                    <PokemonCard name={pokemon.name} />
+                pokemons.map((pokemon, i) => (
+                    <PokemonCard name={pokemon.name} key={i} />
                 ))
             }
         </ListContainer>
