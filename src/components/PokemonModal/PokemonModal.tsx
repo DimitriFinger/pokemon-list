@@ -15,11 +15,13 @@ const PokemonModal: React.FC<Props> = ({ onBackdropClick, isModalVisible, name }
     const [loading, setLoading] = useState<boolean>(true);
     const [loadingError, setLoadingError] = useState<boolean>(false);
 
+    console.log('name', name);
 
     const loadDetails = async () => {
         try {
             setLoading(true);
             const response = await getPokemonDetails(name);
+            console.log(response.data);
             setPokemonDetail(response.data);
             setLoading(false);
         } catch (err) {
@@ -41,6 +43,15 @@ const PokemonModal: React.FC<Props> = ({ onBackdropClick, isModalVisible, name }
         return null;
     }
 
+    if (!name) {
+        return (
+            <Modal onBackdropClick={onBackdropClick}>
+                <DesktopModalContainer>
+                    <Header>Nome não inserido.</Header>
+                </DesktopModalContainer>
+            </Modal >
+        )
+    }
     if (loadingError) {
         return (
             <Modal onBackdropClick={onBackdropClick}>
