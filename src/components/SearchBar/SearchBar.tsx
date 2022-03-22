@@ -28,9 +28,6 @@ const SearchBar: React.FC<Props> = () => {
             <StyledInput type="text" name="query" value={pokemonSearch} onChange={((e) => setPokemonSearch(e.target.value))} id="query" />
             <button onClick={handleClear} >Limpar</button>
             <button onClick={showModal}>Buscar</button>
-            {
-                console.log('valor pokemon', pokemonSearch)
-            }
             <PokemonModal isModalVisible={isModalVisible} onBackdropClick={showModal} name={pokemonSearch} />
         </StyledInputDiv >
     );

@@ -15,14 +15,11 @@ const PokemonModal: React.FC<Props> = ({ onBackdropClick, isModalVisible, name }
     const [loading, setLoading] = useState<boolean>(true);
     const [loadingError, setLoadingError] = useState<boolean>(false);
 
-    console.log('loadingError', loadingError);
-
     const loadDetails = async () => {
         setLoadingError(false);
         try {
             setLoading(true);
             const response = await getPokemonDetails(name);
-            console.log(response.data);
             setPokemonDetail(response.data);
             setLoading(false);
         } catch (err) {
@@ -80,7 +77,6 @@ const PokemonModal: React.FC<Props> = ({ onBackdropClick, isModalVisible, name }
             <DesktopModalContainer>
                 <PokemonImage src={pokemonDetail.sprites.front_default} alt=" " />
                 <Header>{name.charAt(0).toUpperCase() + name.slice(1)}</Header>
-                {console.log(pokemonDetail)}
             </DesktopModalContainer>
         </Modal >
 
