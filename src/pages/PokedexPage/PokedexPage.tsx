@@ -4,6 +4,7 @@ import PokemonList from '../../components/PokemonList/PokemonList';
 import { getPokemons } from '../../services/api'
 import { Pokemon } from '../../models/pokemons';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import PaginationButtons from '../../components/PaginationButtons/PaginationButtons';
 
 const PokedexPage: React.FC = () => {
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -14,7 +15,7 @@ const PokedexPage: React.FC = () => {
 
     const loadPokemons = async (url?: string) => {
         try {
-            const response = await getPokemons();
+            const response = await getPokemons(url);
             console.log(response.data);
             setPokemons(response.data.results);
             setNextPage(response.data.next);
@@ -32,6 +33,15 @@ const PokedexPage: React.FC = () => {
         (async () => await loadPokemons())();
     }, []);
 
+
+    const gotoNextPage = () => {
+        loadPokemons(nextPage)
+    }
+
+    const gotoPrevPage = () => {
+        loadPokemons(prevPage)
+    }
+
     if (loading) {
         return (
             <h1>Carregando...</h1>
@@ -46,10 +56,11 @@ const PokedexPage: React.FC = () => {
 
 
     return (
-        <div className="main-container">
+        <div>
             <NavBar />
             <SearchBar />
             <PokemonList pokemons={pokemons} />
+            <PaginationButtons gotoNextPage={gotoNextPage} gotoPrevPage={gotoPrevPage} />
         </div>
     )
 }

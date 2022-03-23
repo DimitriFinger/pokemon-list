@@ -37,6 +37,8 @@ const PokemonModal: React.FC<Props> = ({ onBackdropClick, isModalVisible, name }
     }, [isModalVisible]);
 
 
+
+
     if (!isModalVisible) {
         return null;
     }
