@@ -13,7 +13,5 @@ export const StyledInputDiv = styled.div`
     align-items: center;
     gap: 10px;
     background-color: #f1f1f1;
-    max-width: 480px;    
-    margin: 2rem auto;
-    padding: .5rem;
+    width: 400px;
 `;

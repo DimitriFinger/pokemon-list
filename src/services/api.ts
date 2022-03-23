@@ -4,6 +4,11 @@ export const getPokemons = (url?: string) => {
     let baseURL = 'https://pokeapi.co/api/v2/pokemon/';
 
     if (url) {
+
+        if (url.charAt(url.length - 1) === '6') {
+            url = url.slice(0, -1) + '20';
+        }
+        console.log(url.charAt(url.length - 1));
         return axios.get(url);
     }
     return axios.get(baseURL);

@@ -16,12 +16,9 @@ const PokedexPage: React.FC = () => {
     const loadPokemons = async (url?: string) => {
         try {
             const response = await getPokemons(url);
-            console.log(response.data);
             setPokemons(response.data.results);
             setNextPage(response.data.next);
             setPrevPage(response.data?.previous);
-            console.log(nextPage);
-            console.log(prevPage);
             setLoading(false);
         } catch (err) {
             setLoadingError(true);
@@ -58,9 +55,8 @@ const PokedexPage: React.FC = () => {
     return (
         <div>
             <NavBar />
-            <SearchBar />
             <PokemonList pokemons={pokemons} />
-            <PaginationButtons gotoNextPage={gotoNextPage} gotoPrevPage={gotoPrevPage} />
+            <PaginationButtons gotoNextPage={nextPage ? gotoNextPage : null} gotoPrevPage={prevPage ? gotoPrevPage : null} />
         </div>
     )
 }

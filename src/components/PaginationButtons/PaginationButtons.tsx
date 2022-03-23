@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { ButtonsContainer, PaginationButton } from './styled';
+import { ButtonsContainer, OffButtonDiv, PaginationButton } from './styled';
 
 interface Props {
-    gotoNextPage: () => void,
-    gotoPrevPage: () => void
+    gotoNextPage: (() => void) | null,
+    gotoPrevPage: (() => void) | null
 }
 
 const PaginationButtons: React.FC<Props> = ({ gotoNextPage, gotoPrevPage }) => {
     return (
         <ButtonsContainer>
-            <PaginationButton onClick={gotoPrevPage}>Voltar</PaginationButton>
-            <PaginationButton onClick={gotoNextPage}>Próxima</PaginationButton>
+            {gotoPrevPage ? <PaginationButton onClick={gotoPrevPage}>Voltar</PaginationButton> : <h1> </h1>}
+            {gotoNextPage ? <PaginationButton onClick={gotoNextPage}>Próxima</PaginationButton> : <h1> </h1>}
         </ButtonsContainer>
     );
 };
